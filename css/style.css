@@ -1,0 +1,352 @@
+
+/* CSS 1: THEME */
+:root {
+  --bg: #edf1f4;
+  --surface: #ffffff;
+  --ink: #0f2433;
+  --muted: #5b6b78;
+  --line: #d3dce3;
+  --accent: #1c4fe0;
+  --accent-soft: #dfe7fd;
+  --on-accent: #ffffff;
+  --seg-off: #dde4ea;
+  --display: "Archivo Narrow", "Arial Narrow", Arial, sans-serif;
+  --body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* CSS 2: DARK MODE */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b141d;
+    --surface: #132230;
+    --ink: #e9f0f5;
+    --muted: #94a6b4;
+    --line: #223545;
+    --accent: #7aa5ff;
+    --accent-soft: #1a2d52;
+    --on-accent: #0b141d;
+    --seg-off: #223545;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0b141d;
+  --surface: #132230;
+  --ink: #e9f0f5;
+  --muted: #94a6b4;
+  --line: #223545;
+  --accent: #7aa5ff;
+  --accent-soft: #1a2d52;
+  --on-accent: #0b141d;
+  --seg-off: #223545;
+  color-scheme: dark;
+}
+
+/* CSS 3: BASE */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* CSS 4: HEADER */
+header.hero {
+  padding: 56px 0 28px;
+}
+
+h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(44px, 9vw, 92px);
+  line-height: .92;
+  letter-spacing: -.01em;
+  margin: 0 0 14px;
+}
+
+.lede {
+  max-width: 56ch;
+  color: var(--muted);
+  margin: 0 0 28px;
+  font-size: 18px;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 18px;
+  min-width: 130px;
+}
+
+.stat b {
+  display: block;
+  font-family: var(--display);
+  font-size: 34px;
+  line-height: 1;
+}
+
+.stat span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* CSS 5: CONTROLS */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding: 18px 0 8px;
+}
+
+.controls input,
+.controls select {
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 14px;
+  min-height: 44px;
+}
+
+.controls input {
+  flex: 1 1 220px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 6px 0 18px;
+}
+
+.chip {
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 16px;
+  min-height: 40px;
+}
+
+.chip[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+
+:is(.chip, input, select):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* CSS 6: HEADINGS AND GRID */
+h2 {
+  font-family: var(--display);
+  font-size: 30px;
+  margin: 34px 0 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+h2 small {
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 104px 1fr;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* CSS 7: ALTERNATOR CARD */
+.amp {
+  background: var(--accent);
+  color: var(--on-accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 8px;
+  text-align: center;
+}
+
+.amp b {
+  font-family: var(--display);
+  font-size: 50px;
+  line-height: .9;
+}
+
+.amp span {
+  font-size: 13px;
+  margin-top: 4px;
+  opacity: .9;
+}
+
+.amp i {
+  font-style: normal;
+  font-size: 12px;
+  margin-top: 6px;
+  opacity: .9;
+}
+
+.body {
+  padding: 16px 18px;
+}
+
+.make {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.model {
+  font-family: var(--display);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.year {
+  float: right;
+  background: var(--accent-soft);
+  color: var(--ink);
+  border-radius: 6px;
+  padding: 2px 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* CSS 8: AMP GAUGE */
+.gauge {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  gap: 2px;
+  margin: 12px 0;
+}
+
+.gauge s {
+  height: 8px;
+  border-radius: 2px;
+  background: var(--seg-off);
+  text-decoration: none;
+}
+
+.gauge s.on {
+  background: var(--accent);
+}
+
+dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3px 14px;
+  font-size: 14px;
+}
+
+dt {
+  color: var(--muted);
+}
+
+dd {
+  margin: 0;
+  font-weight: 500;
+}
+
+.engine {
+  margin-top: 10px;
+  font-size: 13px;
+  background: var(--accent-soft);
+  border-radius: 6px;
+  padding: 5px 10px;
+  display: inline-block;
+}
+
+/* CSS 9: GUIDE, FOOTER AND MOBILE */
+.empty {
+  padding: 40px 0;
+  color: var(--muted);
+}
+
+.guide {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px 22px;
+  margin: 40px 0 0;
+}
+
+.guide h3 {
+  font-family: var(--display);
+  font-size: 24px;
+  margin: 0 0 8px;
+}
+
+.guide ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+}
+
+.guide li {
+  margin: 4px 0;
+}
+
+footer {
+  color: var(--muted);
+  font-size: 14px;
+  padding: 22px 0 44px;
+}
+
+@media (max-width: 420px) {
+  .card {
+    grid-template-columns: 88px 1fr;
+  }
+
+  .amp b {
+    font-size: 42px;
+  }
+}
