@@ -2,7 +2,7 @@
 /* =====================================================
    JS 1: YOUR DATA
    Field order: make, model, engine, brand, fuel,
-   pins, voltage, amps, year
+   pins, voltage, ampss, year
    ===================================================== */
 
 const D = [
