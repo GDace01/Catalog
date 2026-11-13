@@ -35,6 +35,11 @@ const D = [
   year: r[8]
 }));
 
+const modelImages = {
+  "Honda-City": "images/honda-city.jpeg",
+  "Hyundai-Accent": "images/hyundai-accent.jpeg"
+};
+
 /* JS 2: DERIVED VALUES */
 
 const makes = [...new Set(D.map(d => d.make))];
@@ -89,7 +94,17 @@ function card(d) {
     <div class="body">
       <span class="year">${d.year || "Year not listed"}</span>
       <div class="make">${d.make}</div>
-      <h3 class="model">${d.model}</h3>
+<div class="model-wrapper">
+
+  <img
+    src="${modelImages[d.make + '-' + d.model] || 'images/alternator.jpeg'}"
+    alt="${d.make} ${d.model} alternator"
+    class="model-icon"
+    onerror="this.src='images/alternator.jpeg'; this.onerror=null;">
+
+  <h3 class="model">${d.model}</h3>
+
+</div>
       <div class="gauge" aria-hidden="true">${segs}</div>
 
       <dl>

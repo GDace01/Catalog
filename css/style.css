@@ -249,6 +249,23 @@ h2 small {
   line-height: 1.1;
   margin: 0;
 }
+/* MODEL IMAGE */
+.model-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.model-icon {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: var(--accent-soft);
+  padding: 5px;
+}
 
 .year {
   float: right;
